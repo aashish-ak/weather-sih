@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    
+    function gettingJSON(city){
+        
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q="+city+"&APPID=dabb1ca720b07a63fda96d99a0ca6504",function(json){
+            
+            let temperature=parseInt(json["main"]["temp"])-273;
+            let temp_max=parseFloat(json["main"]["temp_max"])-273;
+            let temp_min=parseFloat(json["main"]["temp_min"])-273;
+            let name=json["name"];
+            let description=json["weather"][0]["description"];
+            $("#city").val("");
+            $("#weather").empty();
+            $("#weather").append("<p>"+temperature+"</p>");
+            $("#weather").append("<p>"+description+"</p>");
+            $("#weather").append("<p>"+name+"</p>");
+            $("#weather").append("<p>High: "+temp_max+"</p>");
+            $("#weather").append("<p>Low:"+temp_min+"</p>");
+
+        }).error(function(jqXHR) {
+            $("#weather").empty();
+            $("#city").val("");
+            alert(jqXHR.responseText);
+    });
+       
+    }
+    function newFunction(){
+            
+            let city=$("#city").val().toString();
+            if(city==""){
+                
+            }
+            else{
+                gettingJSON(city);        
+            }
+    }
+    </script>
+</head>
+<body>
+    <div id="weather"></div>
+    <input type="text" id="city"/><br /><br />
+<button id = "getIt" onclick = "newFunction()">Get Weather!</button>
+</body>
+</html>
