@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
-  res.render('index', {weather: null, error: null});
+  res.render('home');
 })
 
 app.post('/', function (req, res) {
@@ -26,7 +26,15 @@ app.post('/', function (req, res) {
         res.render('index', {weather: null, error: 'Error, please try again'});
       } else {
         let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-        res.render('index', {weather: weatherText, error: null});
+        var weatherobj = {
+            city : weather.name,
+            temperature : (weather.main.temp),
+		    temp_max : (weather.main.temp_max),
+		    temp_min : (weather.main.temp_min),
+            description : weather.weather[0].description,
+            icon : weather.weather[0].icon
+        };
+        res.render('index', {weather: weatherobj, error: null});
       }
     }
   });

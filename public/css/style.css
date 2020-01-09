@@ -1,13 +1,4 @@
-body {
-    width: 800px;
-    margin: 0 auto;
-    font-family: 'Open Sans', sans-serif;
-    background-color: aqua;
-  }
-  .container {
-    width: 600px;
-    margin: 0 auto;
-  }
+
   fieldset {
     display: block;
     -webkit-margin-start: 0px;
@@ -25,8 +16,13 @@ body {
     min-width: -webkit-min-content;
     padding: 30px;
   }
+
+.hero-body{
+    text-align: center;
+}
+
   .ghost-input, p {
-    background-color: orchid;
+    background-color: rgb(87, 161, 118);
     display: block;
     font-weight:300;
     width: 100%;
@@ -52,7 +48,7 @@ body {
     border-bottom:1px solid #ddd;
   }
   .ghost-button {
-    background-color: orchid;
+    background-color: rgb(112, 218, 153);
     border:2px solid #ddd;
     padding:10px 30px;
     width: 100%;
@@ -68,4 +64,12 @@ body {
   }
   p {
     color:  orangered;
+  }
+
+  footer {
+      text-align: center;
+      color: black;
+      margin-bottom: 0%;
+      margin-top: 40%;
+      background-color: black;
   }
