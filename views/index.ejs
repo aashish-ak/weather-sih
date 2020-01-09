@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Test</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What's the weather like?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-  </head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
   <body>
+        <section class="hero is-primary">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            What's the weather like?
+                        </h1>
+                    </div>
+                </div>
+            </section>
+
+            
     <div class="container">
       <fieldset>
         <form action="/" method="post">
           <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
-        <% if(weather !== null){ %>
-          <p><%= weather %></p>
-        <% } %>
-
-        <% if(error !== null){ %>
-          <p><%= error %></p>
-        <% } %>
       </fieldset>
+      <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-offset-4 is-4">
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-left">
+                                    <figure class="image is-50x50">
+                                        <img src="http://openweathermap.org/img/w/<%= weather.icon %>.png" alt="Image">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <span class="title"><%= weather.city %></span>
+                                            <br>
+                                            <span class="subtitle"><%= weather.temperature %>° F</span>
+                                            <br> <%= weather.description %>
+                                            <br>
+                                            <span class="subtitle">Maximum Temperature </span>
+                                             <%= weather.temp_max %>
+                                            <br>
+                                            <span class="subtitle">Minimum Temperature </span>
+                                             <%= weather.temp_min %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+                <h1>Weather SIH &copy 2018</h1>
+            </footer>
     </div>
   </body>
 </html>
