@@ -26,11 +26,14 @@ app.post('/', function (req, res) {
         res.render('index', {weather: null, error: 'Error, please try again'});
       } else {
         let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+        console.log('*'*50)
+        console.log(weather);
+        console.log('*'*50)
         var weatherobj = {
             city : weather.name,
             temperature : (weather.main.temp),
-		    temp_max : (weather.main.temp_max),
-		    temp_min : (weather.main.temp_min),
+		        temp_max : (weather.main.temp_max),
+		        temp_min : (weather.main.temp_min),
             description : weather.weather[0].description,
             icon : weather.weather[0].icon
         };
@@ -41,5 +44,5 @@ app.post('/', function (req, res) {
 })
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('Weather app listening on port 3000!')
 })
