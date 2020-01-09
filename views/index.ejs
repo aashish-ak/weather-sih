@@ -35,27 +35,38 @@
                     <div class="column is-offset-4 is-4">
                         <div class="box">
                             <article class="media">
-                                <div class="media-left">
-                                    <figure class="image is-50x50">
-                                        <img src="http://openweathermap.org/img/w/<%= weather.icon %>.png" alt="Image">
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <div class="content">
-                                        <p>
-                                            <span class="title"><%= weather.city %></span>
-                                            <br>
-                                            <span class="subtitle"><%= weather.temperature %>° F</span>
-                                            <br> <%= weather.description %>
-                                            <br>
-                                            <span class="subtitle">Maximum Temperature </span>
-                                             <%= weather.temp_max %>
-                                            <br>
-                                            <span class="subtitle">Minimum Temperature </span>
-                                             <%= weather.temp_min %>
-                                        </p>
+                                <% if(!error) { %>
+                                    <div class="media-left">
+                                        <figure class="image is-50x50">
+                                            <img src="http://openweathermap.org/img/w/<%= weather.icon %>.png" alt="Image">
+                                        </figure>
                                     </div>
-                                </div>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p>
+                                                <span class="title"><%= weather.city %></span>
+                                                <br>
+                                                <span class="subtitle"><%= weather.temperature %>° F</span>
+                                                <br> <%= weather.description %>
+                                                <br>
+                                                <span class="subtitle">Maximum Temperature </span>
+                                                 <%= weather.temp_max %>
+                                                <br>
+                                                <span class="subtitle">Minimum Temperature </span>
+                                                 <%= weather.temp_min %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <% }  else { %>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p>
+                                                <span class="title">Invalid City Name! Enter Again!</span>
+                                                <br>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <% } %>
                             </article>
                         </div>
                     </div>
